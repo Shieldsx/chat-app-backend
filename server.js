@@ -46,7 +46,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 // ✅ Avatar upload
 app.post('/avatar', upload.single('avatar'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
-  res.json({ fileUrl: req.file.path });
+  res.json({ fileUrl: req.file.secure_url }); // ✅ use secure_url
 });
 
 // ✅ Socket.IO logic
